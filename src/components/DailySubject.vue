@@ -1,6 +1,7 @@
 <template>
   <div>
     <meta name="referrer" content="never">
+    <a style="font-size: 120px">subject</a>
   </div>
 </template>
 
@@ -12,7 +13,7 @@ export default {
     }
   },
   mounted: function () {
-    var url = '/api' + '/api/4/themes'
+    var url = this.HOME + '/api/4/themes'
     this.$axios({
       method: 'GET',
       url: url

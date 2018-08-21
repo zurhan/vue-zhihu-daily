@@ -3,6 +3,7 @@
   <!-- 防止获取知乎日报的图片时报403，图片盗链 -->
   <meta name="referrer" content="never">
   <div class="box">
+    <h1>List</h1>
     <nav class="inner">
     <div class="card" v-for="story in stories" :key="story.id">
     <router-link :to="{name: 'story', params: {id: story.id}}">
