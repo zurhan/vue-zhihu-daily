@@ -21,7 +21,8 @@ export default {
     }
   },
   mounted: function () {
-    var url = this.HOME + '/api/4/news/' + this.$route.params.id
+    var url = '/api/4/news/' + this.$route.params.id
+    // let url = 'http://localhost:8071/news/' + this.$route.params.id
     this.$axios({
       method: 'GET',
       url: url

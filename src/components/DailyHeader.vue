@@ -5,6 +5,7 @@
         <a style="font-size: 30px;">知乎日报</a>
         <router-link to="/list">今日热闻</router-link>
         <router-link to="/subject">专题</router-link>
+        <!-- <router-link to="/test">测试</router-link> -->
         <a class="github" href="https://github.com/zurhan/vue-zhihu-daily" target="_blank">Built with Vue.js by Zurhan</a>
       </nav>
     </header>

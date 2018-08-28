@@ -15,7 +15,14 @@ module.exports = {
         target: 'https://news-at.zhihu.com',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/api': '/api' 
+        }
+      },
+      '/test': {
+        target: 'https://news-at.zhihu.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/test': '/test'
         }
       }
     },

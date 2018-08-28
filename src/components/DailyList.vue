@@ -2,11 +2,12 @@
 <div id="DailyList">
   <!-- 防止获取知乎日报的图片时报403，图片盗链 -->
   <meta name="referrer" content="never">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <div class="box">
     <h1>List</h1>
     <nav class="inner">
     <div class="card" v-for="story in stories" :key="story.id">
-    <router-link :to="{name: 'story', params: {id: story.id}}">
+    <router-link :to="{name: 'story', params: {id: story.id}}" @click="routerto(story.id)">
       <img v-bind:src="story.images[0]" width="260px" height="260px">
       <p class="title">{{ story.title }}</p>
     </router-link>
@@ -25,7 +26,9 @@ export default {
     }
   },
   created: function () {
-    var url = this.HOME + '/api/4/news/latest'
+    // var url = '/api' + '/api/4/news/latest'
+    var url = '/api/4/news/latest'
+    // var url = 'http://localhost:8071/news/latest'
     this.$axios({
       method: 'GET',
       url: url
@@ -80,5 +83,27 @@ img {
   font-weight: 300;
   letter-spacing: .075em;
   margin-right: 1.8em
+}
+
+@media (max-width:860px) {
+    .header .inner {
+        padding: 15px 30px
+    }
+
+}
+
+@media (max-width:600px) {
+    .header .inner {
+        padding: 15px
+    }
+
+    .header a {
+        margin-right: 1em
+    }
+
+    .header .github {
+        display: none
+    }
+
 }
 </style>
