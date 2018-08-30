@@ -4,8 +4,17 @@
   <meta name="referrer" content="never">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <div class="box">
-    <h1>List</h1>
     <nav class="inner">
+      <el-carousel :interval="4000" type="card" height="300px" >
+        <el-carousel-item v-for="top in tops" :key="top.id" name="top.title">
+          <router-link :to="{name: 'story', params: {id: top.id}}">
+            <div style="">
+            <img v-bind:src="top.image" class="img-cover">
+            <span style="position: absolute; left: 10px; bottom:10px; color: #d3dce6;font-size: 20px"><strong>{{ top.title }}</strong></span>
+            </div>
+          </router-link>
+        </el-carousel-item>
+      </el-carousel>
     <div class="card" v-for="story in stories" :key="story.id">
     <router-link :to="{name: 'story', params: {id: story.id}}" @click="routerto(story.id)">
       <img v-bind:src="story.images[0]" width="260px" height="260px">
@@ -68,9 +77,18 @@ export default {
 }
 img {
     border-radius: 5px;
-    width: 260px;
-    height: 260px;
-    padding: auto
+    /* max-width: 100%;
+    max-height: 100%; */
+    padding: auto;
+}
+.img-cover {
+  width: 100%;
+  height: auto;
+  top:10%;
+  -webkit-transform: translateY(-20%);
+  -ms-transform: translateY(-20%);
+  -moz-transform: translateY(-20%);
+  position: relative;
 }
 .title {
   line-height: 24px;
@@ -106,4 +124,20 @@ img {
     }
 
 }
+
+.el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+    position: relative;
+    text-align: center
+  }
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+  }
 </style>

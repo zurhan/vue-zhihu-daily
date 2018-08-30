@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <DailyHeader></DailyHeader>
-    <router-view/>
+    <transition>
+      <router-view/>
+    </transition>
   </div>
 </template>
 

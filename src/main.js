@@ -11,6 +11,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.prototype.$axios = axios
 Vue.prototype.HOME = '/api'
+Vue.config.devtools = true
 // axios.defaults.baseURL = '/api'
 
 /* eslint-disable no-new */

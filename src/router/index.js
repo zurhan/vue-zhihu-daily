@@ -14,7 +14,7 @@ export default new Router({
   routes: [
     {
       path: '*',
-      component: NotFoundComponent
+      component: test
     },
     {
       path: '/',

@@ -4,8 +4,12 @@
   <meta name="referrer" content="never">
   <link rel="stylesheet" v-bind:href="story.css">
   <div class="box">
-    <a style="font-size: 26px">{{ story.title }}</a>
-    <div v-html="story.body">
+    <div style="position: relative; height: 400px">
+      <img v-bind:src="story.image" class="img-cover">
+      <span style="position: absolute; left: 10px; bottom:40px; color: #d3dce6;font-size: 30px"><strong>{{story.title}}</strong></span>
+      <span style="position: absolute; left: 10px; bottom:10px; color: #d3dce6;font-size: 12px">图片：{{ story.image_source }}</span>
+    </div>
+    <div style="position: relative;" v-html="story.body">
     </div>
   </div>
 </div>
@@ -16,8 +20,6 @@ export default {
   data () {
     return {
       story: '',
-      zhtml: '',
-      zcss: ''
     }
   },
   mounted: function () {
@@ -40,6 +42,7 @@ export default {
 <style scoped>
 .box {
   width: 900px;
+  height: auto;
   margin: 0 auto;
   padding: 65px
 }
@@ -47,7 +50,19 @@ export default {
   padding: 65px;
   position: relative;
 }
+.content-image{
+  size: auto;
+}
 .img-place-holder {
-  height: 0px;
+  height: 10px;
+}
+.img-cover {
+  width: 100%;
+  height: auto;
+  top:20%;
+  -webkit-transform: translateY(-40%);
+  -ms-transform: translateY(-40%);
+  -moz-transform: translateY(-40%);
+  position: relative;
 }
 </style>
